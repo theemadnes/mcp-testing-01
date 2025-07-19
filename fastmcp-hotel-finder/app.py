@@ -7,7 +7,7 @@ from fastmcp import FastMCP
 from starlette.routing import Mount
 
 # Create your FastMCP server
-mcp = FastMCP("MyServer")
+mcp = FastMCP("HotelFinderService")
 
 # Create the ASGI app from your MCP server
 mcp_app = mcp.http_app(path='/mcp')

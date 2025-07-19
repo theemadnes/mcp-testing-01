@@ -36,3 +36,14 @@ usage (for basic curl, instead of Gemini CLI):
 ```
 curl -X POST "http://127.0.0.1:8000/find-nearest-hotel"      -H "Content-Type: application/json"      -d '{"x": 50, "y": 10}'
 ```
+
+### fastmcp-hotel-booker
+
+usage (for basic curl, instead of Gemini CLI):
+```
+# create a booking
+curl -X POST "http://127.0.0.1:8080/book_stay"      -H "Content-Type: application/json"      -d '{"guest_name": "Alex", "hotel_name": "Youth Hostel", "num_nights": 5}'
+
+# list bookings
+curl -X GET "http://127.0.0.1:8080/list_bookings"
+```
