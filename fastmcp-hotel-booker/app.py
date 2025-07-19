@@ -90,9 +90,10 @@ async def book_stay(booking: BookingRequest):
     return {"message": confirmation_message, "booking_id": booking_id}
 
 # Define a GET endpoint to list all stored bookings.
-@mcp.resource("data://list_bookings")
+#@mcp.resource("data://list_bookings") # switching to tool because Gemini CLI doesn't currently support resources
+@mcp.tool
 @app.get("/list_bookings")
-async def list_bookings():
+async def list_bookings() -> dict:
     """
     Retrieves a list of all current hotel bookings from the fake database.
 

@@ -39,6 +39,49 @@ curl -X POST "http://127.0.0.1:8000/find-nearest-hotel"      -H "Content-Type: a
 
 ### fastmcp-hotel-booker
 
+after adding the hotel booker to `settings.json`, use Gemini CLI to call it:
+```
+╭──────────────────────────────────────────────────────────────────────────────╮
+│  > i'm currently at 50,50. please find the closest hotel to me and make me   │
+│    (Alex) a booking for 3 nights                                             │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+ ╭─────────────────────────────────────────────────────────────────────────────────╮
+ │ ✔  find_nearest_hotel (hotelFinderServer MCP Server) {"coords":{"x":50,"y":50}} │
+ │                                                                                 │
+ │    {"id":5,"name":"Apartment4Rent","x":40,"y":40,"distance":14.14213            │
+ │    5623730951}                                                                  │
+ ╰─────────────────────────────────────────────────────────────────────────────────╯
+ ╭─────────────────────────────────────────────────────────────────────────────────╮
+ │ ✔  book_stay (hotelBookerServer MCP Server) {"booking":{"guest_name":"Alex","h… │
+ │                                                                                 │
+ │    {"message":"Booking confirmed for Alex at Apartment4Rent for 3               │
+ │    night(s). Booking ID: 2895c9fb-7b4e-457e-9cc2-2745d63233dc. Thank            │
+ │    you!","booking_id":"2895c9fb-7b4e-457e-9cc2-2745d63233dc"}                   │
+ ╰─────────────────────────────────────────────────────────────────────────────────╯
+✦ OK. I've found the nearest hotel to you and booked a 3-night stay for Alex.
+
+  Hotel: Apartment4Rent
+  Booking ID: 2895c9fb-7b4e-457e-9cc2-2745d63233dc
+
+╭─────────────────────────────────────────╮
+│  > show me all existing hotel bookings  │
+╰─────────────────────────────────────────╯
+
+ ╭───────────────────────────────────────────────────────────────────────╮
+ │ ✔  list_bookings (hotelBookerServer MCP Server) {}                    │
+ │                                                                       │
+ │    {"bookings":[{"id":"2895c9fb-7b4e-457e-9cc2-2745d63233dc","guest_  │
+ │    name":"Alex","hotel_name":"Apartment4Rent","num_nights":3}]}       │
+ ╰───────────────────────────────────────────────────────────────────────╯
+✦ OK. Here is the list of all existing hotel bookings:
+
+  Booking ID: 2895c9fb-7b4e-457e-9cc2-2745d63233dc
+  Guest Name: Alex
+  Hotel Name: Apartment4Rent
+  Number of Nights: 3
+```
+
 usage (for basic curl, instead of Gemini CLI):
 ```
 # create a booking
