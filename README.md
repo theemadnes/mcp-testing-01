@@ -4,7 +4,7 @@ use model context protocol to work with two services - one that finds the neares
 
 ### fastmcp-hotel-finder
 
-this is the only thing that works right now with Gemini CLI by adding (assuming you're running it locally) to `~/.gemini/settings.json`:
+start by adding the hotel finder (assuming you're running it locally) to `~/.gemini/settings.json`:
 ```
 "mcpServers": {
     "httpServer": {
