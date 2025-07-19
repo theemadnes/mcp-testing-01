@@ -76,6 +76,8 @@ def calculate_distance(x1: int, y1: int, x2: int, y2: int) -> float:
     return math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
 
 @mcp.tool
+#@mcp.resource("data://{coords}/nearest-hotel")
+#@mcp.resource("data://nearest-hotel")
 @app.post("/find-nearest-hotel", response_model=Hotel)
 async def find_nearest_hotel(coords: Coordinates):
     """
